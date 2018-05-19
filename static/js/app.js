@@ -68,13 +68,16 @@ function apiCall(method, path, params, cb) {
     success: function(data) {
       cb(data);
     },
-    error: function(xhr, status, data) {
-      if (status == "timeout") {
-        return cb({ error: "Query timeout after " + (timeout / 1000) + "s" });
-      }
+    error: function(data) {
+      cb(data);
+    },
+    // error: function(xhr, status, data) {
+    //   if (status == "timeout") {
+    //     return cb({ error: "Query timeout after " + (timeout / 1000) + "s" });
+    //   }
 
-      cb(jQuery.parseJSON(xhr.responseText));
-    }
+    //   cb(jQuery.parseJSON(xhr.responseText));
+    // }
   });
 }
 
@@ -1182,16 +1185,22 @@ $(document).ready(function() {
         $(".connection-scheme-group").show();
         $(".connection-standard-group").hide();
         $(".connection-ssh-group").hide();
+        console.log("scheme");
+
         return;
       case "standard":
         $(".connection-scheme-group").hide();
         $(".connection-standard-group").show();
         $(".connection-ssh-group").hide();
+        console.log("standard");
+
         return;
       case "ssh":
         $(".connection-scheme-group").hide();
         $(".connection-standard-group").show();
         $(".connection-ssh-group").show();
+        console.log("ssh");
+
         return;
     }
   });

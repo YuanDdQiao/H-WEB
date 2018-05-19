@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>pgweb</title>
+  <title>dbyog</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Language" content="en">
@@ -13,6 +13,7 @@
   <link rel="icon" type="image/x-icon" href="./static/img/icon.ico" />
   <script type="text/javascript" src="./static/js/jquery.js"></script>
   <script type="text/javascript" src="./static/js/ace.js"></script>
+  <script type="text/javascript" src="./static/js/app-db-switch.js"></script>
   <script type="text/javascript" src="./static/js/ace-pgsql.js"></script>
   <script type="text/javascript" src="./static/js/bootstrap-contextmenu.js"></script>
   <script type="text/javascript" src="./static/js/utils.js"></script>
@@ -120,10 +121,11 @@
     <div class="connection-settings">
       <!-- <h1>pgweb</h1> -->
       <h1>
-        <select class="filter db-control">
-            <option value="mysqlweb">MysqlWeb</option>
-            <option value="pgweb" selected="selected">PostgreSQL</option>
-            <!-- <option value="mongodb">mongodb</option> -->
+        <select class="filter db-control" id="connection_db" onchange="db_connection()">
+          <option value="mysql">MysqlWeb</option>
+          <option value="postgres" selected="selected">PostgreSQL</option>
+          <!-- <option value="mongodb">MongoDB</option>
+          <option value="hbase">HBaseWeb</option> -->
         </select>
       </h1>
       <form role="form" class="form-horizontal" id="connection_form">
